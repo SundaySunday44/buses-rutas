@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-primary btn-lg" (click)="verTodos()">Todos</button>
+<button type="button" class="btn btn-primary btn-lg" (click)="verInternos()">Interno</button>
+<button type="button" class="btn btn-primary btn-lg" (click)="verExternos()">Externo</button>
+
+
+<div class="card mb-3" style="max-width: 540px;" *ngFor="let arreglo of arreglo|fitrarRuta:this._servicioFondo.filtro |buscarRuta:this._servicioFondo.busqueda">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Ciudad de Origen: {{arreglo.ciudadOR}}</h5>
+                <h5 class="card-title">Ciudad de Destino: {{arreglo.ciudadDES}}</h5>
+                <p class="card-text">Precio: {{arreglo.precio}}</p>
+                <p class="card-text">Tipo: {{arreglo.tipo}}</p>
+                <button type="button" class="text-body-secondary" (click)="verDescp(arreglo)">Ver Mas</button>
+                <div *ngIf="arreglo.verDes">
+                    <p>{{arreglo.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
